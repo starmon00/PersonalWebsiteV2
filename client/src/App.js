@@ -11,22 +11,23 @@ class App extends React.Component {
   }
 
   getConstructionImage() {
-    fetch("http://localhost:4000/construction/image")
+    // fetch("http://localhost:4000/construction/image")
+    fetch("http://3.21.253.9:4000/construction/image")
+
       .then(res => res.blob())
       .then(img => {
-        console.log(img);
         const objectURL = URL.createObjectURL(img);
         const url = objectURL.replace();
-        console.log(url);
         this.setState({ constructionImage: url }); 
-
       })
       .catch(err => err);
   }
 
   getConstructionMessage() {
-    fetch("http://localhost:4000/construction/message")
-      .then(res => res.text())
+
+    // fetch("http://localhost:4000/construction/message")
+    fetch("http://3.21.253.9:4000/construction/message")
+    .then(res => res.text())
       .then(res => this.setState({ constructionMessage: res }))
       .catch(err => err);
   }
